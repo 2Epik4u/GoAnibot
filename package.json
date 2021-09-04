@@ -1,0 +1,28 @@
+{
+  "name": "goanibot",
+  "description": "A Node.js app which communicates with Discord api",
+  "version": "2.0.0",
+  "homepage": "https://discord.gg/PGHtMp7",
+  "license": "BSD 3-Clause",
+  "private": true,
+  "scripts": {
+    "start": "node goanibot.js"
+  },
+  "main": "goanibot.js",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2Epik4u/GoAnibot.git"
+  },
+  "keywords": [
+    "goanimate",
+    "bot"
+  ],
+  "author": "2Epik4u",
+  "bugs": {
+    "url": "https://github.com/2Epik4u/GoAnibot/issues"
+  }
+}
