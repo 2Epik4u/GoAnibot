@@ -118,7 +118,7 @@ client.on('message', message => {
 	if (message.author.bot) return;  
 	  const user = message.mentions.users.first();
 	  if (user) {
-		const member = message.guild.member(user);
+		const member = message.guild.fetch(user);
 		if (member) {
 
 		  message.channel.send(`${user.tag} is grounded grounded grounded grounded grounded for infinity years. Now ${user.tag} Go to your room right now! `).then(() => {
@@ -145,7 +145,7 @@ client.on('message', message => {
 	if (message.content.startsWith(config.prefix + "unground")) {
 	const user = message.mentions.users.first();
 	if (user) {
-	  const member = message.guild.member(user);
+		const member = message.guild.fetch(user);
 	  if (member) {
 		message.channel.send(`${user.tag} is ungrounded 😃😃😃`).then(() => {
 		  
