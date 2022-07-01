@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
-
+const token = require('./token.json');
 
 
 client.on("ready", () =>{
@@ -229,4 +229,4 @@ client.on('message', message => {
     }
 });
 // bot token login
-client.login(config.token)
+client.login(token.token)
