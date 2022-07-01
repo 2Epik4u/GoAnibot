@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, Intents, MessageEmbed } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 const config = require('./config.json');
 const token = require('./token.json');
 
@@ -12,13 +12,12 @@ client.on("ready", () =>{
 
 client.on('message', message => {  
 	if (message.content.toLowerCase().startsWith(config.prefix + "ragecookie")) {
-		if (message.author.id === "569341656449548290")  return;
-		const GoEmbed = new Discord.MessageEmbed()	  
+		const GoEmbed = new MessageEmbed()	  
 		.setTitle('this is what development looks like xdd')
-		.attachFiles(['https://cdn.discordapp.com/attachments/571483118062796822/765585880005869598/Screen_Shot_2020-09-10_at_3.52.37_PM.png'])
+		.setImage('https://cdn.discordapp.com/attachments/571483118062796822/765585880005869598/Screen_Shot_2020-09-10_at_3.52.37_PM.png')
 		.setDescription('EGS DE TOTAL NOT RIP OFF')
 		.setColor(0xFF0000)
-	  message.channel.send(GoEmbed);
+		message.channel.send({ embeds: [GoEmbed] });
 	}
   })
 
@@ -31,45 +30,42 @@ client.on('message', message => {
 	  
 	  
 	if (message.content.toLowerCase().startsWith(config.prefix + "gotestdance")) {
-		if (message.author.id === "569341656449548290")  return;
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		  .setTitle('GoTest344 Dancing')
-		  .attachFiles(['https://cdn.discordapp.com/attachments/740797420744474734/747367509509799946/gotest.gif'])
+		  .setImage('https://cdn.discordapp.com/attachments/740797420744474734/747367509509799946/gotest.gif')
 		  .setDescription('nice.')
 		  .setColor(0xFF0000)
-		message.channel.send(GoEmbed);
+		  message.channel.send({ embeds: [GoEmbed] });
 	  }
 	})
   
   client.on('message', message => {
 	if (message.content.toLowerCase().startsWith(config.prefix + "hiddencake")) {
-		if (message.author.id === "569341656449548290")  return;
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		  .setTitle('You found the hidden cake!')
-		  .attachFiles(['https://cdn.discordapp.com/attachments/740797420744474734/747365229737934928/cake.png'])
+		  .setImage('https://cdn.discordapp.com/attachments/740797420744474734/747365229737934928/cake.png')
 		  .setDescription('nice. but its not a real cake so dont eat it!')
 		  .setColor(0x0092b0)
-		message.channel.send(GoEmbed);
+		  message.channel.send({ embeds: [GoEmbed] });
 	  }
 	})
   
 	//epik dancing
 	client.on('message', message => {
 		if (message.content.toLowerCase().startsWith(config.prefix + "epikdance")) {
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		  .setTitle('Here is 2Epik4u Dancing!')
-		  .attachFiles(['https://cdn.discordapp.com/attachments/740797420744474734/746628859784331304/epikdance.gif'])
+		  .setImage('https://cdn.discordapp.com/attachments/740797420744474734/746628859784331304/epikdance.gif')
 		  .setDescription('😎😎😎!')
 		  .setColor(0x1653C1)
-		message.channel.send(GoEmbed);
+		  message.channel.send({ embeds: [GoEmbed] });
 	  }
 	})
 	client.on('message', message => {
 		if (message.content.toLowerCase().startsWith(config.prefix + "poggerdance")) {
-			if(message.author.id === "569341656449548290")  return;
-			const GoEmbed = new Discord.MessageEmbed()
+			const GoEmbed = new MessageEmbed()
 			.setTitle('Cushion Poggers Dancing!!!!')
-			.attachFiles(['https://cdn.discordapp.com/attachments/736381316039180350/783769510255001620/lemondance.gif'])
+			.setImage('https://cdn.discordapp.com/attachments/736381316039180350/783769510255001620/lemondance.gif')
 			.setDescription('oh no hes not poggers')
 			.setColor(0xFE0000)
 		  message.channel.send(GoEmbed);
@@ -77,13 +73,12 @@ client.on('message', message => {
 	  })
   	client.on('message', message => {
 		if (message.content.toLowerCase().startsWith(config.prefix + "lemondance")) {
-			if(message.author.id === "569341656449548290")  return;
-			const GoEmbed = new Discord.MessageEmbed()
+			const GoEmbed = new MessageEmbed()
 			.setTitle('wtf?????????? so scary!!!!! 😭😭😭😭')
-			.attachFiles(['https://cdn.discordapp.com/attachments/799889523231555586/816681680382197770/static-assets-upload6072567890192608323.gif'])
+			.setImage('https://cdn.discordapp.com/attachments/799889523231555586/816681680382197770/static-assets-upload6072567890192608323.gif')
 			.setDescription('ok')
 			.setColor(0xFE0000)
-		  message.channel.send(GoEmbed);
+			message.channel.send({ embeds: [GoEmbed] });
 		}
 	  })
   
@@ -91,13 +86,12 @@ client.on('message', message => {
   //mj dancing
   client.on('message', message => {
 	if (message.content.toLowerCase().startsWith(config.prefix + "mjdance")) {
-		if (message.author.id === "569341656449548290")  return;
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		  .setTitle('Woah is that MJ the spirit dancing')
-		  .attachFiles(['https://cdn.discordapp.com/attachments/723742491433500782/814524663597498368/60fpsmj-4x-RIFE.gif'])
+		  .setImage('https://cdn.discordapp.com/attachments/723742491433500782/814524663597498368/60fpsmj-4x-RIFE.gif')
 		  .setDescription('how does he dance so smooth 😳😳')
 		  .setColor(0xFC8C06)
-		message.channel.send(GoEmbed);
+		  message.channel.send({ embeds: [GoEmbed] });
 	  }
 	})
   
@@ -106,13 +100,12 @@ client.on('message', message => {
 	//cyan dance
 	client.on('message', message => {
 		if (message.content.toLowerCase().startsWith(config.prefix + "cyandance")) {
-		if (message.author.id === "569341656449548290")  return;
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		  .setTitle('CyanAnimate dancing very nice')
-		  .attachFiles(['https://cdn.discordapp.com/attachments/740797420744474734/746522631926448168/cyan.gif'])
+		  .setImage('https://cdn.discordapp.com/attachments/740797420744474734/746522631926448168/cyan.gif')
 		  .setDescription('cyan more like tom from eddsworld')
 		  .setColor(0xFC8C06)
-		message.channel.send(GoEmbed);
+		  message.channel.send({ embeds: [GoEmbed] });
 	  }
 	})
   
@@ -122,8 +115,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content.toLowerCase().startsWith(config.prefix + "ground")) {
-		if(message.author.id === "569341656449548290")  return;
-		if (message.author.bot) return;  
+	if (message.author.bot) return;  
 	  const user = message.mentions.users.first();
 	  if (user) {
 		const member = message.guild.member(user);
@@ -151,7 +143,6 @@ client.on('message', message => {
   
   client.on('message', message => {
 	if (message.content.startsWith(config.prefix + "unground")) {
-	if(message.author.id === "569341656449548290")  return;
 	const user = message.mentions.users.first();
 	if (user) {
 	  const member = message.guild.member(user);
@@ -184,26 +175,25 @@ client.on('message', message => {
 
 //discord help command
 client.on('message', message => {
-	if(message.author.id === "569341656449548290")  return;
 		if (message.content.toLowerCase().startsWith(config.prefix + "help")) {
-		const GoEmbed = new Discord.MessageEmbed()
+		const GoEmbed = new MessageEmbed()
 		.setTitle('GoAnibot V2')
 		.setColor('RANDOM')
 		.setURL('https://discord.com/oauth2/authorize?client_id=628607192806981632&scope=bot&permissions=6041')
 		.setDescription('Welcome to GoAnibot')
 		.addFields(
-			{ name: 'epikdance', value: 'Makes 2Epik4u Dance' },
-			{ name: 'mjdance', value: 'Shows MJ Dancing', inline: true },
-			{ name: 'hiddencake', value: 'Gives you a free hidden cake!', inline: true },
-			{ name: 'poggerdance', value: 'dancing pogger man O_O' },
-			{ name: 'lemondance', value: 'dancing lemon man O_O' },
-			{ name: 'ground', value: 'Ground people', inline: true },
-			{ name: 'hiddencake', value: 'Gives you a free hidden cake!', inline: true }
+			{ name: 'ga epikdance', value: 'Makes 2Epik4u Dance' },
+			{ name: 'ga mjdance', value: 'Shows MJ Dancing', inline: true },
+			{ name: 'ga hiddencake', value: 'Gives you a free hidden cake!', inline: true },
+			{ name: 'ga poggerdance', value: 'dancing pogger man O_O' },
+			{ name: 'ga lemondance', value: 'dancing lemon man O_O' },
+			{ name: 'ga ground', value: 'Ground people', inline: true },
+			{ name: 'ga hiddencake', value: 'Gives you a free hidden cake!', inline: true }
 		)
 		.addField('gotestdance', 'GoTest dancing', true)
 		.setTimestamp()
 	  // Send the embed to the same channel as the message
-	  message.channel.send(GoEmbed);
+	  message.channel.send({ embeds: [GoEmbed] });
 
 	}
   });

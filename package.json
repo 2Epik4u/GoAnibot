@@ -12,7 +12,6 @@
   "dependencies": {
     "discord.js": "^13.8.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Thunderzapper/GoAnibot.git"
