@@ -1,15 +1,3 @@
-const { Client, Intents, MessageEmbed } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const config = require('./config.json');
-const token = require('./token.json');
-
-
-client.on("ready", () =>{
-	console.log(`Logged in as ${client.user.tag}!`);
-	client.user.setActivity(config.status), { type: 'PLAYING' }
-})
-
-
 client.on('message', message => {  
 	if (message.content.toLowerCase().startsWith(config.prefix + "ragecookie")) {
 		const GoEmbed = new MessageEmbed()	  
@@ -197,26 +185,3 @@ client.on('message', message => {
 
 	}
   });
-
-
-
-
-
-// respond if pinged
-client.on('message', message => {	
-    if (message.author.bot) return false;
-    if (message.content.includes("@here") || message.content.includes("@everyone")) return false;
-    if (message.mentions.has(client.user.id)) {
-        message.channel.send('prefix is "ga " with a space.');
-    }
-});
-	 
-// make bot say a thing
- client.on("message", async message => {
-    if (message.author.bot) return;
-	if (message.content.toLowerCase().startsWith(config.prefix + "say")) {		
-        message.channel.send(message.content.slice(6, message.content.length));
-    }
-});
-// bot token login
-client.login(token.token)
