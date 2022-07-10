@@ -108,12 +108,19 @@ client.on('messageCreate', message => {
 			break;
 		case 'ground':
 			var user = message.mentions.users.first();
+			if (user == message.author) return;
 			if (!user) {
 				message.reply('mention who you are grounding you cant ground nobody'); 
 				return;
 			}
+			var getafter = message.content.split(" ").filter(a=> a != `${config.prefix.replace(/\s+/g, '')}` ).filter(b=> b != `ground` ).filter(c=> c != `<@${user.id}>` ).join(" ");
+			if (getafter == "") {
+				var title = `Sorry bro. You're grounded!`;
+			} else {
+				var title = `Sorry bro. You're grounded for ${getafter}!`;
+			}
 			simpleembed(
-				'Sorry bro. You\'re grounded!', 
+				title, 
 				'https://cdn.discordapp.com/attachments/984665993580265496/995554130137452574/unknown.png',
 				`<@${user.id}> is grounded grounded grounded grounded grounded for infinity years. Now <@${user.id}> Go to your room right now!`,
 				0xF44336,
@@ -122,12 +129,19 @@ client.on('messageCreate', message => {
 			break;
 		case 'unground':
 			var user = message.mentions.users.first();
+			if (user == message.author) return;
 			if (!user) {
 				message.reply('mention who you are ungrounding you cant unground nobody'); 
 				return;
 			}
+			var getafter = message.content.split(" ").filter(a=> a != `${config.prefix.replace(/\s+/g, '')}` ).filter(b=> b != `unground` ).filter(c=> c != `<@${user.id}>` ).join(" ");
+			if (getafter == "") {
+				var title = `You're now Ungrounded! Enjoy!`;
+			} else {
+				var title = `You're now Ungrounded for ${getafter}! Enjoy!`;
+			}
 			simpleembed(
-				'You\'re now Ungrounded! Enjoy!', 
+				title, 
 				'https://cdn.discordapp.com/attachments/984665993580265496/995554289718136862/unknown.png',
 				`<@${user.id}> is ungrounded 😃😃😃`,
 				0x0ACE00,
@@ -136,7 +150,7 @@ client.on('messageCreate', message => {
 			break;
 		case 'help':
 			const GoEmbed = new MessageEmbed()
-			.setTitle('GoAnibot V2.1.1')
+			.setTitle('GoAnibot V2.1.2')
 			.setColor('RANDOM')
 			.setDescription('Welcome to GoAnibot')
 			.addFields(
@@ -152,8 +166,8 @@ client.on('messageCreate', message => {
 			message.reply({ embeds: [GoEmbed] });
 			break;
 		case 'say':
-			var tosay = message.content.toLowerCase().split(config.prefix + 'say ');
-			message.channel.send(tosay);
+			var newmsg = message.content.split(" ").filter(a=> a != `${config.prefix}say`).join(" ");
+			message.channel.send(newmsg);
 			break;
 		default:
 			if (message.mentions.has(client.user.id)) {
