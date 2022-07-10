@@ -150,7 +150,7 @@ client.on('messageCreate', message => {
 			break;
 		case 'help':
 			const GoEmbed = new MessageEmbed()
-			.setTitle('GoAnibot V2.1.2')
+			.setTitle('GoAnibot V2.1.3')
 			.setColor('RANDOM')
 			.setDescription('Welcome to GoAnibot')
 			.addFields(
@@ -166,7 +166,7 @@ client.on('messageCreate', message => {
 			message.reply({ embeds: [GoEmbed] });
 			break;
 		case 'say':
-			var newmsg = message.content.split(" ").filter(a=> a != `${config.prefix}say`).join(" ");
+			var newmsg = message.content.split(" ").filter(a=> a != `${config.prefix.replace(/\s+/g, '')}`).filter(a=> a != `say`).join(" ");
 			message.channel.send(newmsg);
 			break;
 		default:
