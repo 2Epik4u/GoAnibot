@@ -1,7 +1,7 @@
 {
   "name": "goanibot",
   "description": "discord bot",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "homepage": "https://thunderzapper.xyz",
   "license": "BSD 3-Clause",
   "private": false,

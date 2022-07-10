@@ -136,7 +136,7 @@ client.on('messageCreate', message => {
 			break;
 		case 'help':
 			const GoEmbed = new MessageEmbed()
-			.setTitle('GoAnibot V2')
+			.setTitle('GoAnibot V2.1.1')
 			.setColor('RANDOM')
 			.setDescription('Welcome to GoAnibot')
 			.addFields(
