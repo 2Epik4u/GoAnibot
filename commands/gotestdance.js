@@ -3,14 +3,14 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('epikdance')
-		.setDescription('Replies with 2 EPIK 4 U!!! Dancing!'),
+		.setName('gotestdance')
+		.setDescription('Replies with Gotest Dancing!'),
 	async execute(interaction) {
 		const GoEmbed = new MessageEmbed()
-		.setTitle('Here is 2Epik4u Dancing!')
-		.setImage('https://cdn.discordapp.com/attachments/740797420744474734/746628859784331304/epikdance.gif')
-		.setDescription('😎😎😎!')
-		.setColor(0x1653C1)
+		.setTitle('GoTest344 Dancing')
+		.setImage('https://cdn.discordapp.com/attachments/740797420744474734/747367509509799946/gotest.gif')
+		.setDescription('nice.')
+		.setColor(0xFF0000)
 		await interaction.reply({ embeds: [GoEmbed] });
 	},
 };
