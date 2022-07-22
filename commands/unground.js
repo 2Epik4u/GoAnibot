@@ -12,11 +12,10 @@ module.exports = {
 		.addStringOption(option => 
 			option.setName('reason')
 				.setDescription('Enter a reason')
-				.setRequired(false)),
+				.setRequired(true)),
 	async execute(interaction) {
 		const user = interaction.options.getUser('user');
 		const string = interaction.options.getString('reason');
-
 		const GoEmbed = new MessageEmbed()
 		.setTitle(`You're now Ungrounded for ${string}! Enjoy!`)
 		.setDescription(`${user} is ungrounded 😃😃😃`)
