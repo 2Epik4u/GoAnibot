@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('cyandance')
+		.setName('scarylemondance')
 		.setDescription('Replies with SCARY LEMON WTF!!!'),
 	async execute(interaction) {
 		const GoEmbed = new MessageEmbed()

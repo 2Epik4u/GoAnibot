@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('cyandance')
+		.setName('mjdance')
 		.setDescription('Replies with pedophile I MEAN mj Dancing!'),
 	async execute(interaction) {
 		const GoEmbed = new MessageEmbed()
