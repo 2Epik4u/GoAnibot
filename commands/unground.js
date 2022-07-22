@@ -2,22 +2,16 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('ground')
-		.setDescription('regret grouding someone? just wanna undo it? then unground someone lol'),
+		.setName('unground')
+		.setDescription('Reward your users!')
+		.addUserOption(option => option.setName('target').setDescription('Select a user'))
+		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 
 	async execute(interaction) {
-		const user = message.mentions.users.first();
-		if (user) {
-			const user = interaction.options.getUser('target');
-		}
-		if (member) {
-			interaction.reply(`${user.tag} is ungrounded 😃😃😃`).then(() => {
-			}).catch(err => {
-
-				interaction.reply('I was unable to ground the member');
-	  
-				console.error(err);
-			  });
-			}
-	},
+		const GoEmbed = new MessageEmbed()
+		.setTitle(`You're now Ungrounded! Enjoy!`)
+		.setImage('https://cdn.discordapp.com/attachments/984665993580265496/995554289718136862/unknown.png')
+		.setColor(0x0ACE00)
+		await interaction.reply({ embeds: [GoEmbed] });
+	}
 };
