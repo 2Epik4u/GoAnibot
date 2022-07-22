@@ -6,7 +6,8 @@
   "license": "BSD 3-Clause",
   "private": false,
   "scripts": {
-    "start": "node goanibot.js"
+    "start": "node index.js"
+    "deploy": "node deploy-commands.js"
   },
   "main": "goanibot.js",
   "dependencies": {
