@@ -9,7 +9,7 @@
     "start": "node index.js",
     "deploy": "node deploy-commands.js"
   },
-  "main": "goanibot.js",
+  "main": "index.js",
   "dependencies": {
     "discord.js": "^13.8.1"
   },
