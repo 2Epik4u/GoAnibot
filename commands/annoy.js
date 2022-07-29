@@ -10,13 +10,17 @@ module.exports = {
 		.setDescription('Plays a sound on the computer of the person hosting the bot')
 		.addAttachmentOption(option =>
 			option.setName('sound')
+<<<<<<< HEAD
 				.setDescription('Sound for the bot to play (MUST BE MP3)')),
+=======
+				.setDescription('sound for the bot to play')),
+>>>>>>> 521ba98 (3.2 + i don't need nitpick shit epik)
 	async execute(interaction) {
+		interaction.reply({ content: 'ok' });
 		const file = interaction.options.getAttachment('sound');
-		if (file && !file.name.endsWith('.mp3')) return;
-		var command = 'cvlc https://cdn.discordapp.com/attachments/950096176739385485/1002413527069364244/loud.mp3';
+		var command = 'vlc https://cdn.discordapp.com/attachments/950096176739385485/1002413527069364244/loud.mp3';
 		if (file) {
-			command = 'cvlc ' + file.url;
+			command = 'vlc ' + file.url;
 		}
 		exec(command, (error, stdout, stderr) => {
 			if (error) {
@@ -26,6 +30,5 @@ module.exports = {
 			console.log(`annoy used`)
 			return;
 		});
-		interaction.reply({ content: 'ok' });
 	}
 };

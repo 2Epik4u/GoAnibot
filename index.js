@@ -23,7 +23,6 @@ client.on("ready", () =>{
 
 client.on('interactionCreate', async interaction => {
 	if (interaction.type === InteractionType.ApplicationCommand) {
-
 		const command = client.commands.get(interaction.commandName);
 
 		if (!command) return;
@@ -36,63 +35,67 @@ client.on('interactionCreate', async interaction => {
 		}
 
 	} else if (interaction.type === InteractionType.MessageComponent) {
-		var pollsjson = await JSON.parse(fs.readFileSync('polls.json'))
-		if (!pollsjson[`${interaction.message.id}`]) {
-			pollsjson[`${interaction.message.id}`] = {
-				'yesvoters': [],
-				'novoters': []
-			};
-		}
-		basestr = interaction.message.embeds[0].data.description
-		var endindex = basestr.indexOf('\n')
-		var yesamount = basestr.substring(5, endindex);
-		var noamount = basestr.substring(endindex+4);
-		switch (interaction.customId) {
-			case 'yes':
-				if (pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`) != -1) {
-					interaction.reply({ content: 'You already voted "yes"!', ephemeral: true })
-					var dnc = true;
+		if (interaction.customId == 'yes' || 'no') {
+			var pollsjson = await JSON.parse(fs.readFileSync('polls.json'))
+			if (!pollsjson[`${interaction.message.id}`]) {
+				pollsjson[`${interaction.message.id}`] = {
+					'yesvoters': [],
+					'novoters': []
+				};
+			}
+			basestr = interaction.message.embeds[0].data.description
+			var endindex = basestr.indexOf('\n')
+			var yesamount = basestr.substring(5, endindex);
+			var noamount = basestr.substring(endindex+4);
+			switch (interaction.customId) {
+				case 'yes':
+					if (pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`) != -1) {
+						interaction.reply({ content: 'You already voted "yes"!', ephemeral: true })
+						var dnc = true;
+						break;
+					}
+					if (pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`) != -1) {
+						--noamount
+						pollsjson[interaction.message.id]["novoters"].splice(pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`), 1)
+					}
+					yesamount++
+					pollsjson[interaction.message.id]["yesvoters"].push(`${interaction.user.id}`);
 					break;
-				}
-				if (pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`) != -1) {
-					--noamount
-					pollsjson[interaction.message.id]["novoters"].splice(pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`), 1)
-				}
-				yesamount++
-				pollsjson[interaction.message.id]["yesvoters"].push(`${interaction.user.id}`);
-				break;
-			case 'no':
-				if (pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`) != -1) {
-					interaction.reply({ content: 'You already voted "no"!', ephemeral: true })
-					var dnc = true;
+				case 'no':
+					if (pollsjson[interaction.message.id]["novoters"].indexOf(`${interaction.user.id}`) != -1) {
+						interaction.reply({ content: 'You already voted "no"!', ephemeral: true })
+						var dnc = true;
+						break;
+					}
+					if (pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`) != -1) {
+						--yesamount;
+						pollsjson[interaction.message.id]["yesvoters"].splice(pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`), 1)
+					}
+					noamount++
+					pollsjson[interaction.message.id]["novoters"].push(`${interaction.user.id}`);
 					break;
-				}
-				if (pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`) != -1) {
-					--yesamount;
-					pollsjson[interaction.message.id]["yesvoters"].splice(pollsjson[interaction.message.id]["yesvoters"].indexOf(`${interaction.user.id}`), 1)
-				}
-				noamount++
-				pollsjson[interaction.message.id]["novoters"].push(`${interaction.user.id}`);
-				break;
-		}
-		if (!dnc) {
-			const GoEmbed = new EmbedBuilder()
-			.setTitle(interaction.message.embeds[0].data.title)
-			.setDescription(`Yes: ${yesamount}\nNo: ${noamount}`);
-			const row = new ActionRowBuilder()
-				.addComponents(
-					new ButtonBuilder()
-						.setCustomId('yes')
-						.setLabel('Yes')
-						.setStyle(ButtonStyle.Primary),
-					new ButtonBuilder()
-						.setCustomId('no')
-						.setLabel('No')
-						.setStyle(ButtonStyle.Primary),
-				);
-			await fs.writeFileSync('polls.json', JSON.stringify(pollsjson));
-			await interaction.message.edit({ embeds: [GoEmbed], components: [row] })
-			interaction.reply({ content: 'Voted "' + interaction.customId + '"', ephemeral: true })
+			}
+			if (!dnc) {
+				const GoEmbed = new EmbedBuilder()
+				.setTitle(interaction.message.embeds[0].data.title)
+				.setDescription(`Yes: ${yesamount}\nNo: ${noamount}`);
+				const row = new ActionRowBuilder()
+					.addComponents(
+						new ButtonBuilder()
+							.setCustomId('yes')
+							.setLabel('Yes')
+							.setStyle(ButtonStyle.Success),
+						new ButtonBuilder()
+							.setCustomId('no')
+							.setLabel('No')
+							.setStyle(ButtonStyle.Danger),
+					);
+				await fs.writeFileSync('polls.json', JSON.stringify(pollsjson));
+				await interaction.message.edit({ embeds: [GoEmbed], components: [row] })
+				interaction.reply({ content: 'Voted "' + interaction.customId + '"', ephemeral: true })
+			}
+		} else if (interaction.customId == 'end') {
+
 		}
 	} else {
 		return;

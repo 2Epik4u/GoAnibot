@@ -11,13 +11,15 @@ module.exports = {
 				.setRequired(true))
 		.addStringOption(option => 
 			option.setName('reason')
-				.setDescription('Enter a reason')
-				.setRequired(true)),
+				.setDescription('Enter a reason')),
 	async execute(interaction) {
 		const user = interaction.options.getUser('user');
 		const string = interaction.options.getString('reason');
+		var title = `You're now Ungrounded for ${string}! Enjoy!`;
+		if (!string) title = `You're now Ungrounded! Enjoy!`
+
 		const GoEmbed = new EmbedBuilder()
-		.setTitle(`You're now Ungrounded for ${string}! Enjoy!`)
+		.setTitle(title)
 		.setDescription(`${user} is ungrounded 😃😃😃`)
 		.setImage('https://cdn.discordapp.com/attachments/984665993580265496/995554289718136862/unknown.png')
 		.setColor(0x0ACE00)

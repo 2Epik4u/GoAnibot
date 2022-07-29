@@ -21,18 +21,18 @@ module.exports = {
 		const string = interaction.options.getString('name');
 		const time = interaction.options.getInteger('hours');
 		const GoEmbed = new EmbedBuilder()
-		.setTitle(`POLL: ${string} -- Started by ${interaction.user}`)
+		.setTitle(`POLL: ${string} -- Started by ${interaction.user.tag}`)
 		.setDescription(`Yes: 0\nNo: 0`);
 		const row = new ActionRowBuilder()
 			.addComponents(
 				new ButtonBuilder()
 					.setCustomId('yes')
 					.setLabel('Yes')
-					.setStyle(ButtonStyle.Primary),
+					.setStyle(ButtonStyle.Success),
 				new ButtonBuilder()
 					.setCustomId('no')
 					.setLabel('No')
-					.setStyle(ButtonStyle.Primary),
+					.setStyle(ButtonStyle.Danger),
 			);
 		await interaction.channel.send({ embeds: [GoEmbed], components: [row] });
 		interaction.reply({ content: 'poll created', ephemeral: true })
