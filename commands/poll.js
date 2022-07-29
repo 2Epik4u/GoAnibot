@@ -18,7 +18,7 @@ module.exports = {
 				.setMaxValue(24)
 				.setRequired(true)),
 	async execute(interaction) {
-		const string = interaction.options.getString('poll name');
+		const string = interaction.options.getString('name');
 		const time = interaction.options.getInteger('hours');
 		const GoEmbed = new EmbedBuilder()
 		.setTitle(`POLL: ${string} -- Started by ${interaction.user}`)
