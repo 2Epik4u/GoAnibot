@@ -7,10 +7,10 @@ const https = require('https')
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('annoy')
-		.setDescription('plays a sound on the computer of the person hosting the bot')
+		.setDescription('Plays a sound on the computer of the person hosting the bot')
 		.addAttachmentOption(option =>
 			option.setName('sound')
-				.setDescription('sound for the bot to play (MUST BE MP3)')),
+				.setDescription('Sound for the bot to play (MUST BE MP3)')),
 	async execute(interaction) {
 		const file = interaction.options.getAttachment('sound');
 		if (file && !file.name.endsWith('.mp3')) return;

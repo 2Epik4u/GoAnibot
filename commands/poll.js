@@ -8,17 +8,17 @@ module.exports = {
 		.setName('poll')
 		.setDescription('create a poll')
 		.addStringOption(option => 
-			option.setName('why')
-				.setDescription('why are you making a poll')
+			option.setName('name')
+				.setDescription('Name of the poll you are creating')
 				.setRequired(true))
 		.addIntegerOption(option =>
 			option.setName('hours')
-				.setDescription('how many hours should this poll last')
+				.setDescription('How many hours should this poll last')
 				.setMinValue(1)
 				.setMaxValue(24)
 				.setRequired(true)),
 	async execute(interaction) {
-		const string = interaction.options.getString('why');
+		const string = interaction.options.getString('poll name');
 		const time = interaction.options.getInteger('hours');
 		const GoEmbed = new EmbedBuilder()
 		.setTitle(`POLL: ${string} -- Started by ${interaction.user}`)

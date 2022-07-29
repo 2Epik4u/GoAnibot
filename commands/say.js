@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Make the bot say something!')
 		.addStringOption(option => 
 			option.setName('text')
-				.setDescription('text for the bot to say')
+				.setDescription('Text for the bot to say')
 				.setRequired(true)),
 	async execute(interaction) {
 		const string = interaction.options.getString('text');
