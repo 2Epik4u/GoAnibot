@@ -1,14 +1,14 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('mjdance')
 		.setDescription('Replies with pedophile I MEAN mj Dancing!'),
 	async execute(interaction) {
-		const GoEmbed = new MessageEmbed()
+		const GoEmbed = new EmbedBuilder()
 		.setTitle('Woah is that MJ the spirit dancing')
-		.setImage('https://cdn.discordapp.com/attachments/723742491433500782/814524663597498368/60fpsmj-4x-RIFE.gif')
+		.setImage('https://media.discordapp.net/attachments/740797420744474734/791857031111901204/ezgif-5-3af8a77a80ce.gif')
 		.setDescription('how does he dance so smooth 😳😳')
 		.setColor(0xFC8C06)
 		await interaction.reply({ embeds: [GoEmbed] });

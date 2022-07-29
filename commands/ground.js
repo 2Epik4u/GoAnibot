@@ -1,10 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ground')
-		.setDescription('FUCKJ your users! ground them because they SUCK')
+		.setDescription('Ground STUPID people...')
 		.addUserOption(option => 
 			option.setName('user')
 				.setDescription('Select a user')
@@ -17,7 +17,7 @@ module.exports = {
 		const user = interaction.options.getUser('user');
 		const string = interaction.options.getString('reason');
 
-		const GoEmbed = new MessageEmbed()
+		const GoEmbed = new EmbedBuilder()
 		.setTitle(`Sorry bro. You're grounded for ${string} `)
 		.setDescription(`${user} is grounded grounded grounded grounded grounded for infinity years. Now ${user} Go to your room right now!`)
 		.setImage('https://cdn.discordapp.com/attachments/984665993580265496/995554130137452574/unknown.png')

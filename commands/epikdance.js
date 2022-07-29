@@ -1,12 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('epikdance')
 		.setDescription('Replies with 2 EPIK 4 U!!! Dancing!'),
 	async execute(interaction) {
-		const GoEmbed = new MessageEmbed()
+		const GoEmbed = new EmbedBuilder()
 		.setTitle('Here is 2Epik4u Dancing!')
 		.setImage('https://cdn.discordapp.com/attachments/740797420744474734/746628859784331304/epikdance.gif')
 		.setDescription('😎😎😎!')
