@@ -23,6 +23,6 @@
     "url": "https://github.com/Thunderzapper/GoAnibot/issues"
   },
   "dependencies": {
-    "discord.js": "^14.0.3"
+    "discord.js": "^14.2.0"
   }
 }
