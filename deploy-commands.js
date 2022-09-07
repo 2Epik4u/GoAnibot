@@ -2,8 +2,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId} = require('./config.json');
-const { token } = require('./token.json')
 
 const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
@@ -15,8 +13,8 @@ for (const file of commandFiles) {
 	commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '10' }).setToken(token);
+const rest = new REST({ version: '10' }).setToken(process.env.token);
 
-rest.put(Routes.applicationCommands(clientId), { body: commands })
+rest.put(Routes.applicationCommands(process.env.clientid), { body: commands })
 	.then(() => console.log('Successfully registered application commands.'))
 	.catch(console.error);

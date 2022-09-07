@@ -14,9 +14,9 @@ module.exports = {
 	async execute(interaction) {
 		interaction.reply({ content: 'ok' });
 		const file = interaction.options.getAttachment('sound');
-		var command = 'vlc https://cdn.discordapp.com/attachments/950096176739385485/1002413527069364244/loud.mp3';
+		var command = 'mpv https://cdn.discordapp.com/attachments/950096176739385485/1002413527069364244/loud.mp3';
 		if (file) {
-			command = 'vlc ' + file.url;
+			command = 'mpv ' + file.url;
 		}
 		exec(command, (error, stdout, stderr) => {
 			if (error) {

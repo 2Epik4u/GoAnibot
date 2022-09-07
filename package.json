@@ -1,7 +1,7 @@
 {
-  "name": "goanibot",
-  "description": "discord bot",
-  "version": "3.2",
+  "name": "GoAnibot",
+  "description": "A GoAnimate Discord Bot with fun commands.",
+  "version": "3.2.1",
   "homepage": "https://thunderzapper.xyz",
   "license": "BSD 3-Clause",
   "private": false,
@@ -12,17 +12,18 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Thunderzapper/GoAnibot.git"
+    "url": "git+https://github.com/2Epik4u/GoAnibot.git"
   },
   "keywords": [
     "goanimate",
     "bot"
   ],
-  "author": "Thunderzapper",
+  "author": "2Epik4u",
   "bugs": {
-    "url": "https://github.com/Thunderzapper/GoAnibot/issues"
+    "url": "https://github.com/2Epik4u/GoAnibot/issues"
   },
   "dependencies": {
-    "discord.js": "^14.2.0"
+    "discord.js": "^14.3.0",
+    "dotenv": "16.0.2"
   }
 }
