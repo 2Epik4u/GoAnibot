@@ -1,29 +1,22 @@
 {
   "name": "GoAnibot",
-  "description": "A GoAnimate Discord Bot with fun commands.",
-  "version": "3.2.1",
+  "version": "4.0.0",
+  "license": "MIT",
   "homepage": "https://thunderzapper.xyz",
-  "license": "BSD 3-Clause",
+  "type": "module",
+  "module": "dist/index.mjs",
   "private": false,
   "scripts": {
-    "start": "node index.js",
-    "deploy": "node deploy-commands.js"
-  },
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/2Epik4u/GoAnibot.git"
-  },
-  "keywords": [
-    "goanimate",
-    "bot"
-  ],
-  "author": "2Epik4u",
-  "bugs": {
-    "url": "https://github.com/2Epik4u/GoAnibot/issues"
+    "dev": "miniflare --watch --debug --wrangler-env=development",
+    "deploy:global": "node --no-warnings --experimental-vm-modules scripts/deploy.js"
   },
   "dependencies": {
-    "discord.js": "^14.3.0",
-    "dotenv": "16.0.2"
+    "slshx": "^0.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.3.0",
+    "esbuild": "^0.14.8",
+    "miniflare": "^2.6.0",
+    "wrangler": "^2.0.24"
   }
 }
