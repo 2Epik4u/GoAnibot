@@ -9,7 +9,7 @@ This project reqiures ``mpv`` for the annoy command and only works on linux (for
 To install, install node.js and do ``npm install``
 
 Then, you need to get a token from https://discordapi.com. Then, go in .env.example and paste in your bot's clientid and token and rename it to .env.
-Now do ``npm deploy`` ``npm start`` and the bot will start.
+Now do ``npm start`` and the bot will start.
 
 # Support Discord Server
 If you are having issues with selfhosting, or just want to see news about the bot, go the the [Discord Server](https://discord.gg/sDbXWajZQA)
